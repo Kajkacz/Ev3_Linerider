@@ -17,8 +17,8 @@ pickedUp = False
 #Sensor Initialization
 
 	#Light
-cl_right = ColorSensor('in1')
-cl_left = ColorSensor('in2')
+cl_right = ColorSensor('in2')
+cl_left = ColorSensor('in1')
 
 cl_right.mode='RGB-RAW'
 cl_left.mode='RGB-RAW'
@@ -51,24 +51,60 @@ max_ref = -1000
 min_ref = 1000
 end_time = time() + 5
 
-#while time() < end_time:
-#  read = (colorSum(cl_right) + colorSum(cl_left))/2
-#  if max_ref < read:
-#    max_ref = read
-#  if min_ref > read:
-#    min_ref = read
-#
-#print ('Max: ' + str(max_ref))
-#print ('Min: ' + str(min_ref))
-
+print('Values for red')
 while time() < end_time:
-  read = cl_left.value(0) - cl_left.value(1) + cl_left.value(0) - cl_left.value(2)
+  read = cl_right.value(0)
   if max_ref < read:
     max_ref = read
   if min_ref > read:
     min_ref = read
-print ('Max: ' + str(max_ref))
-print ('Min: ' + str(min_ref))
+   
+print ('Max Red: ' + str(max_ref))
+print ('Min Red: ' + str(min_ref))
+ 
+max_ref = -1000 #reset
+min_ref = 1000
+end_time = time() + 5
+
+print('Values for green')
+while time() < end_time:
+  read = cl_right.value(1)
+  if max_ref < read:
+    max_ref = read
+  if min_ref > read:
+    min_ref = read
+   
+print ('Max Green: ' + str(max_ref))
+print ('Min Green: ' + str(min_ref))
+ 
+max_ref = -1000 #reset
+min_ref = 1000
+end_time = time() + 5
+
+print('Values for  color sum')
+while time() < end_time:
+  read = colorSum(cl_right)
+  if max_ref < read:
+    max_ref = read
+  if min_ref > read:
+    min_ref = read
+   
+print ('Max Color Sum: ' + str(max_ref))
+print ('Min Color Sum: ' + str(min_ref))
+
+max_ref = -1000
+min_ref = 1000
+end_time = time() + 5
+
+print('Values of Theta')
+while time() < end_time:
+  read = cl_right.value(0) - cl_right.value(1) + cl_right.value(0) - cl_right.value(2)
+  if max_ref < read:
+    max_ref = read
+  if min_ref > read:
+    min_ref = read
+print ('Max Theta : ' + str(max_ref))
+print ('Min Theta : ' + str(min_ref))
 
 left_motor.stop()
 right_motor.stop()
