@@ -1,10 +1,16 @@
 from ev3dev.ev3 import *
 from time import *
+##################################
+## Skrypt do testowania koloru - zwraca wartości zczytane z czytnika(Chyba prawego ale jakby coś się psuło to warto sprawdzić).
+## Można też tutaj sprawdzić czy wejście do skryptu podnoszenia działa 
+##################################
+
+
+
 
 def colorSum(colorSensor):
 	color = colorSensor.value(0) + colorSensor.value(1) + colorSensor.value(2)
 	return color	
-
 #Stałe do wykrywania kolorów
 	#Zielony
 lowerGreenThreshold = 150		# Dolna granica wartości G

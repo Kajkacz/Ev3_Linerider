@@ -1,5 +1,8 @@
 from ev3dev.ev3 import *
 from time import *
+##################################
+##Pokazuje wartości czerwonego, zielonego, sumy i thety dla obecnego miejsca w którym stoi robot
+##################################
 
 def colorSum(colorSensor):
 	color = colorSensor.value(0) + colorSensor.value(1) + colorSensor.value(2)

@@ -1,6 +1,9 @@
 
 from ev3dev.ev3 import *
 from time import *
+##################################
+## Skrypt który nie realizuje transportu a tylko jedzie po lini
+##################################
 
 
 def colorSum(colorSensor):
