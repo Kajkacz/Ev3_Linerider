@@ -5,39 +5,25 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+% Images
+\usepackage{graphicx}
+\graphicspath{{Obrazy/}}
+\usepackage{float}
 \renewcommand{\thesection}{\arabic{section}}
 \author{Kajetan Kaczmarek i Małgorzata Stawik}
 \title{Dokumentacja WR}
 \begin{document}
-\begin{center}\begin{LARGE}
+\begin{center}
+\begin{huge}
 Dokumentacja Projektu WR \\
 Robot Linerider\\
+\vspace{0.5cm}
+\end{huge}
+\begin{LARGE}
 Małgorzata Stawik i Kajetan Kaczmarek
 \end{LARGE}
 \end{center}
-\section{Wstęp}
-W ramach projektu z przedmiotu "Wstęp do Robotyki" mieliśmy za zadanie wykonać robota śledzącego linie oraz przenoszącego ładunek. W ciągu 5 spotkań laboratoryjnych zbudowaliśmy fizyczną konstrukcję oraz stworzyliśmy oprogramowanie do jego obsługi
-\section{Konstrukcja}
-\begin{itemize}
-\item
-Pierwszy pomysł na konstrukcję robota zakładał użycie jednego silnika do napędu oraz drugiego sterującego osią skrętną.Po kilku próbach okazało się że robot miał duże problemy ze skręcaniem, a do tego wysoka konstrukcja negatywnie wpływała na stabilność.Przy drugiej próbie wykonaliśmy bardziej standardową konstrukcję z użyciem dwóch dużych silników do napędu dwóch kół oraz kulki jako trzeciego punktu podparcia z tyłu.Po jakimś czasie dodaliśmy także guzik do wyłączania programu dla ułatwienia testów.
-\item
-Jeśli chodzi o wykrywanie lini zamontowaliśmy na przodzie robota dwa czujniki światła które miały wykrywać kolor czarny i w takim wypadku skręcać w odpowiednim kierunku.Początkowo były one umieszczone zbyt wysoko, ale po opuszczeniu zaczęły zdawać egzamin.
-\item
-Do podnoszenia paczki zamontowaliśmy średni silnik z obrotowym hakiem do zaczepienia paczki.Poniżej niego znajduje się czujnik podczerwieni służący do wykrywania obiektu do podniesienia
-\end{itemize}
-\section{Oprogramowanie}
-W zaprojektowanym oprogramowaniu użyliśmy szeregu funkcji:
-\begin{itemize}
-\item
- Funkcje pomocnicze countTheta i colorSum liczące pewne zmienne używane w algorytmach, tj. sumę wszystkich zmiennych RGB z danego czujnika światła oraz zmieniająca system na pseudoHSV
- \item
- checkRed i checkGreen - funkcje używane do sprawdzania w głównej pętli programu czy w danym momencie robot nie przejeżdża danym czytnikiem po kolorze zielonym lub czerwonym
- \item
- Funkcje dropBlock i pickUp, które służą do upuszczania i podnoszenia ładunku - składają się z małej pętli która wykonuje po kolei czynności wymagane w danej czynności
- \item
- Funkcja returnToLine która jest używana przy podnoszeniu i opuszczania klocka i służy do wrócenia na linię ruchu po wykonaniu zadania
- \item
- Funkcję steering i run realizujące główną funkcjonalność z użyciem algorytmu PID
-\end{itemize}
+
+\include{Content}
+
 \end{document}
